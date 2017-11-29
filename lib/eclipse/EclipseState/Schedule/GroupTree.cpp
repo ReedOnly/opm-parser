@@ -36,7 +36,7 @@ void GroupTree::update( const std::string& name ) {
  * and represented elsewhere)
  */
 
-void GroupTree::update( const std::string& name, const std::string& other_parent ) {
+void GroupTree::update( const std::string& name, const std::string& other_parent, const int& grupnet ) {
     if( name == "FIELD" )
         throw std::invalid_argument( "The FIELD group name is reserved." );
 
@@ -47,11 +47,13 @@ void GroupTree::update( const std::string& name, const std::string& other_parent
 
     if( root == this->groups.end() || root->name != other_parent )
         this->groups.insert( root, 1, group { other_parent, "FIELD" } );
+        this->grupnet=grupnet;
 
     auto node = this->find( name );
 
     if( node == this->groups.end() || node->name != name ) {
         this->groups.insert( node, 1, group { name, other_parent } );
+        this->grupnet=grupnet;
         return;
     }
 

@@ -1287,7 +1287,8 @@ namespace Opm {
         for( const auto& record : keyword ) {
             const std::string& childName = record.getItem("CHILD_GROUP").getTrimmedString(0);
             const std::string& parentName = record.getItem("PARENT_GROUP").getTrimmedString(0);
-            newTree.update(childName, parentName);
+            const int& grupnet = record.getItem("VFP_TABLE");
+            newTree.update(childName, parentName, grupnet);
 
             if (!hasGroup(parentName))
                 addGroup( parentName , currentStep );

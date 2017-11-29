@@ -28,10 +28,11 @@ namespace Opm {
 class GroupTree {
     public:
         void update( const std::string& name );
-        void update( const std::string& name, const std::string& parent );
+        void update( const std::string& name, const std::string& parent, const int& grupnet );
         bool exists( const std::string& group ) const;
         const std::string& parent( const std::string& name ) const;
         std::vector< std::string > children( const std::string& parent ) const;
+        const int& grupnet( const std::string& name ) const;
 
         bool operator==( const GroupTree& ) const;
         bool operator!=( const GroupTree& ) const;
@@ -40,6 +41,7 @@ class GroupTree {
         struct group {
             std::string name;
             std::string parent;
+            int grupnet;
 
             bool operator<( const group& rhs ) const;
             bool operator==( const std::string& name ) const;
