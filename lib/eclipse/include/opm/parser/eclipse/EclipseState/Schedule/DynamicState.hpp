@@ -25,6 +25,8 @@
 #include <vector>
 #include <algorithm>
 
+#include <iostream>
+
 #include <opm/parser/eclipse/EclipseState/Schedule/TimeMap.hpp>
 
 
@@ -91,10 +93,11 @@ class DynamicState {
            return true, otherwise it will return false.
         */
         bool update( size_t index, T value ) {
+            //std::cout << index << ',' << m_data.size() << std::endl;
             if( this->initial_range == this->m_data.size() )
                 this->initial_range = index;
 
-            const bool change = (value != this->m_data.at( index ));
+            const bool change = value != this->m_data.at( index );
 
             if( !change ) return false;
 

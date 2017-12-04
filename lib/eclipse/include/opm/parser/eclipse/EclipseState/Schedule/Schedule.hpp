@@ -148,6 +148,7 @@ namespace Opm
         void handleGEFAC( const DeckKeyword& keyword, size_t currentStep);
         void handleTUNING( const DeckKeyword& keyword, size_t currentStep);
         void handleGRUPTREE( const DeckKeyword& keyword, size_t currentStep);
+        void handleGRUPNET( const DeckKeyword& keyword, size_t currentStep);
         void handleWRFT( const DeckKeyword& keyword, size_t currentStep);
         void handleWRFTPLT( const DeckKeyword& keyword, size_t currentStep);
         void handleWPIMULT( const DeckKeyword& keyword, size_t currentStep);
